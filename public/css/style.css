@@ -1,0 +1,131 @@
+html,body {
+  height: 100%;
+}
+
+body {
+  background-color: #ebeaf4;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header{
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  border-bottom: solid;
+  border-width: thin;
+  border-bottom-color: #aeacbd;
+  box-shadow: 0 0 1em black;
+}
+
+
+nav{
+  display: inline-block;
+  align-items: center;
+  width: 20%;
+  justify-content: center;
+  margin: auto 20px;
+}
+
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: rgb(83, 81, 81);
+}
+
+.checkbtn{
+  font-size: 30px;
+  color: black;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  display: none;
+}
+
+#check{
+  display: none;
+}
+
+.logo-img{
+  display: flex;
+  margin: 20px;
+}
+
+.quest-container{
+  background: #fbf5ff;
+  position: static;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  width: 70%;
+  box-shadow: 0 0 1em #b5b2b2;
+  margin: 170px auto;
+  overflow: hidden;
+}
+
+.quest-container h2{
+  align-self: flex-start;
+  margin-left: 10%;
+}
+
+.quest-form{
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.quest-form button{
+  background-color: #047499;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 80%;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  margin: auto;
+  align-self: center;
+}
+
+.quest-form button:hover {
+  background-color: #0799ca; 
+  color: white;
+}
+
+.quest-form input{
+  margin: 10px auto 30px;
+  width: 100%;
+}
+.quest-form label{
+  float: left;
+
+}
+
+.siteHeader{
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 120px;  
+}
+
+.siteHeader a:hover {
+  color: rgb(152, 221, 221);
+}
+
+@media screen and (max-width: 800px) {
+  
+  .checkbtn{
+    display: block;
+  }
+
+}
