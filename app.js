@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.route("/")
 
 .get(function(req, res){
-    res.render("index");
+    res.sendFile(__dirname + "/views/index.html");
 });
 
 app.listen(3000, function(){
