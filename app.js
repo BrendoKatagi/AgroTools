@@ -17,18 +17,18 @@ app.route("/")
 })
 
 .post(function(req, res){
-    app.use(bodyParser.json());
 
     const newForm = {
         name: req.body.name,
-        date: req.body.date,
+        date: req.body.dateAns,
         quest1: req.body.question1,
         quest2: req.body.question2,
     };
     
     JSON.stringify(newForm);
+    forms.push(newForm);
 
-    console.log(newForm);
+    console.log(forms);
 });
 
 app.listen(3000, function(){
