@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-        <title>Formulário</title>
-    </head>
-
-    <header>
-        <div class="siteHeader">
-            <img class="logo-img" src="images/LogoAgrotoolsNew.png" alt="Logo Agrotools">
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <nav>
-                <ul>
-                    <li><a href="javascript:void(0)">Forms</a></li>
-                    <li><a href="javascript:void(0)">Teste</a></li>
-                    <li><a href="javascript:void(0)">About me</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<%- include('partials/header') %>
 
     <body>
         <div class="quest-container">
 
-            <h2>Questionário:</h2>
+            <h2>Questionário <%= questId %>  :</h2>
             <form action="/" method="POST" class="quest-form">
                 <label for="name">Nome completo:</label><br>
                 <input type="text" name="name" required><br>
@@ -41,7 +13,7 @@
                 <input type="text" name="question1" required><br>
                 <label for="question2">Questão 2:</label><br>
                 <input type="text" name="question2" required><br>
-                <button type="submit">Submit</button>
+                <button class="quest-btn" type="submit">Submit</button>
             </form>
         </div>
     </body>
