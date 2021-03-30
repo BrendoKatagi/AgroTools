@@ -57,11 +57,25 @@
 
                 <div class="add-form">
                     <input type="text" name="newItem" placeholder="New question" autocomplete="off">
-                    <button class="add-btn" type="submit" name="button" value="add">+</button>
+                    <button class="add-btn" type="submit" name="button" value="add" disabled>+</button>
                 </div>
 
-                <button class="quest-btn" type="submit" value="save">Save</button>
+                <button class="quest-btn" type="submit" name="button" value="save">Save</button>
             </form>
         </div>
+
+        <script>
+            var addElement = document.getElementsByName('newItem');
+            addElement[0].addEventListener('input', function(){
+                if(addElement[0].value != ""){
+                    console.log("disable");
+                    document.getElementsByClassName('add-btn')[0].removeAttribute('disabled');
+                }else{
+                    console.log("enable");
+                    document.getElementsByClassName('add-btn')[0].disabled = true;
+                }
+            });
+          </script>
+
     </body>
 </html>

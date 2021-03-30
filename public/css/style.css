@@ -62,6 +62,9 @@ nav ul li a{
 
 }
 
+.add-btn:disabled{
+  background-color: #cccccc;
+}
 .checkbtn{
   font-size: 30px;
   color: black;
@@ -95,7 +98,6 @@ nav ul li a{
 .quest-container h2{
   align-self: flex-start;
   color: #550073;
-  margin-left: 3%;
   font-weight: bold;
 }
 
