@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#dataModal').modal('show');
+    });
+</script>
+
+    <body>
+
+        <div id="dataModal" class="modal">
+            <h3>Para criar um novo questionário preencha os dados:</h3>
+            <form action="/modal" method="POST" class="modal-form">
+                <label for="name">Seu Nome:</label>
+                <input type="text" name="name" required ><br>
+                <label for="formTitle">Título do Questionário:</label>
+                <input type="text" name="formTitle" required><br>
+                <label for="country">País:</label>
+                <input type="text" name="country" required><br>
+                <label for="country">Cidade:</label>
+                <input type="text" name="city" required><br>
+
+                <button id="modal-submit" class="mod-btn" type="submit" name="modalButton" value="modal">Criar</button>
+            </form>
+        </div>
+
+</body>
+</html>
