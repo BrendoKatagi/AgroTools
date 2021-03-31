@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+    <body>
+        <div class="quest-container">
+            <table>
+                <tr>
+                    <th><h3>Título</h3></th>
+                    <th><h3>Nome criador</h3></th>
+                    <th><h3>Data de criação</h3></th>
+                </tr>
+                <% formData.forEach(function(form){ %>
+                    <tr>
+                        <th><a href="/articles/<%= form.formIndex %>"><%= form.title %> </a></th>
+                        <th><%= form.creatorName %></th>
+                        <th><%= form.date %></th>    
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
+    </body>
+</html>
