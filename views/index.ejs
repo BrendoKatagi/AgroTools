@@ -41,9 +41,9 @@
                 <label for="name">Nome completo:</label><br>
                 <input type="text" name="name" required><br>
                 <label for="lat">Latitude:</label><br>
-                <input type="text" name="lat" placeholder="" readonly><br>
+                <input type="text" name="lat" placeholder="" ><br>
                 <label for="long">Longitude:</label><br>
-                <input type="text" name="long" placeholder="" readonly><br>    
+                <input type="text" name="long" placeholder=""><br>    
 
                 <% let indice = 0; %>  
                 <% itemsList.forEach(function(item){ %> 
@@ -61,8 +61,8 @@
                     let lat = position.coords.latitude;
                     let long = position.coords.longitude;
 
-                    document.getElementsByName("lat")[0].placeholder=lat;
-                    document.getElementsByName("long")[0].placeholder=long;
+                    document.getElementsByName("lat")[0].value=lat;
+                    document.getElementsByName("long")[0].value=long;
                 });
             });
         </script>
