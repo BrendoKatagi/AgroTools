@@ -146,6 +146,18 @@ app.route("/forms")
     res.render("forms", {formData: answeredForms});
 });
 
+app.route("/forms/:index")
+.get(function(req, res){
+
+    for (var i = 0; i < answeredForms.length; i++){
+
+        if(answeredForms[i].answerIndex === parseInt(req.params.index)){
+            console.log(answeredForms[i]);
+            //res.render("checkform", {formData: answeredForms[i]});
+            break;
+        }
+    }
+});
 app.listen(3000, function(){
     console.log("Server started on port 3000");
 });
