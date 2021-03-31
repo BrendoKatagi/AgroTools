@@ -12,6 +12,7 @@
         <!-- jQuery Modal -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        
         <title>Formulário</title>
     </head>
 
@@ -26,7 +27,7 @@
                 <ul>
                     <li><a href="/modal">Create</a></li>
                     <li><a href="/answer">Answer</a></li>
-                    <li><a href="javascript:void(0)">Check forms</a></li>
+                    <li><a href="/forms">Check forms</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,6 +40,11 @@
             <form action="/answer" method="POST" class="quest-form">
                 <label for="name">Nome completo:</label><br>
                 <input type="text" name="name" required><br>
+                <label for="lat">Latitude:</label><br>
+                <input type="text" name="lat" placeholder="" readonly><br>
+                <label for="long">Longitude:</label><br>
+                <input type="text" name="long" placeholder="" readonly><br>    
+
                 <% let indice = 0; %>  
                 <% itemsList.forEach(function(item){ %> 
                     <label for="<%= indice %> "><%= item %> :</label><br>
@@ -47,5 +53,19 @@
                 <button class="quest-btn" type="submit">Submit</button>
             </form>
         </div>
+
+        <script type="text/javascript">
+            $(window).on('load', function() {
+
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let lat = position.coords.latitude;
+                    let long = position.coords.longitude;
+
+                    document.getElementsByName("lat")[0].placeholder=lat;
+                    document.getElementsByName("long")[0].placeholder=long;
+                });
+            });
+        </script>
+
     </body>
 </html>
