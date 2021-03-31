@@ -1,20 +1,32 @@
-<%- include('partials/header') %>
 
+    <%- include('partials/header') %>
+    
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#dataModal').modal('show');
+        });
+    </script>
     <body>
+        <div id="dataModal" class="modal">
+            <h3>Para criar um novo questionário preencha os dados:</h3>
+            <form action="/create" method="POST" class="modal-form">
+                <label for="name">Seu Nome:</label>
+                <input type="text" name="name" required ><br>
+                <label for="formTitle">Título do Questionário:</label>
+                <input type="text" name="formTitle" required><br>
+                <label for="country">País:</label>
+                <input type="text" name="country" required><br>
+                <label for="country">Cidade:</label>
+                <input type="text" name="country" required><br>
+
+                <button class="mod-btn" type="submit" name="modalButton" value="modal">Criar</button>
+            </form>
+        </div>
+
         <div class="quest-container">
 
             <h2>Questionário <%= questId %>  :</h2>
             <form action="/create" method="POST" class="quest-form">
-                <label for="name">Nome completo:</label><br>
-                <input type="text" name="name" ><br>
-                <label for="dateAns">Data de cadastro:</label><br>
-                <input type="date" name="dateAns" >
-
-                <h3>Localização</h3><br>
-                <label for="lat">Latitude:</label><br>
-                <input type="text" name="lat" ><br>
-                <label for="long">Longitude:</label><br>
-                <input type="text" name="long" ><br>
                 
                 <% if(questions.length){ %> 
                     <% questionId = 0; %> 
@@ -47,7 +59,7 @@
                     document.getElementsByClassName('add-btn')[0].disabled = true;
                 }
             });
-          </script>
+        </script>
 
     </body>
 </html>

@@ -73,6 +73,9 @@ nav ul li a{
   margin-right: 40px;
   display: none;
 }
+.close-modal {
+  display: none;
+}
 
 #check{
   display: none;
@@ -114,7 +117,7 @@ nav ul li a{
   margin: 5%;
 }
 
-.quest-btn{
+.quest-btn, .mod-btn{
   background-color: #047499;
   border: none;
   color: white;
@@ -152,6 +155,12 @@ nav ul li a{
   float: left;
 
 }
+
+.modal-form{
+  display: flex;
+  flex-direction: column;
+}
+
 
 .siteHeader{
   overflow: hidden;
