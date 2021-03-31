@@ -109,15 +109,20 @@ app.route("/answer")
     let year = date.getFullYear();
 
     today = day + "-" + month + "-" + year;
-
+    
     newAnswer.date = today;
+    newAnswer.latitude = data.lat;
+    newAnswer.longitude = data.long;
     newAnswer.userName = data.name;
     delete data['name'];
+    delete data['lat'];
+    delete data['long'];
     newAnswer.answers = data;
 
     answeredForms.push(newAnswer);
     newAnswer = {};
 
+    res.redirect("/forms");
 });
 
 app.route("/answer/:index")
@@ -129,10 +134,16 @@ app.route("/answer/:index")
             newAnswer.answerIndex = ansID + 1;
             newAnswer.formIndex = forms[i].formIndex;
             newAnswer.formTitle =  forms[i].title;
-            res.render("index", {title: forms[i].title, itemsList: forms[i].items})
+            res.render("index", {title: forms[i].title, itemsList: forms[i].items});
             break;
         }
     }
+});
+
+app.route("/forms")
+.get(function(req, res){
+    console.log(answeredForms);
+    res.render("forms", {formData: answeredForms});
 });
 
 app.listen(3000, function(){
