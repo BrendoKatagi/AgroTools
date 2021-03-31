@@ -52,8 +52,6 @@ app.route("/modal")
         formIndex: qId + 1,
         creatorName: req.body.name,
         title: req.body.formTitle,
-        country: req.body.country,
-        city: req.body.city,
         date: todayDate
     };
     JSON.stringify(newForm);
