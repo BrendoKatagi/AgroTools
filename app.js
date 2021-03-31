@@ -15,7 +15,7 @@ app.use(express.static("public"));
 app.route("/")
 
 .get(function(req, res){
-    res.render("index", {questId: qId});
+    res.redirect("/answer");
 })
 
 .post(function(req, res){
@@ -98,6 +98,21 @@ app.route("/answer")
 
 .post(function(req, res){
 
+});
+
+app.route("/answer/:index")
+
+.get(function(req, res){
+    for (var i = 0; i < forms.length; i++){
+        console.log(forms[i].formIndex);
+        console.log(req.params.index);
+
+        if(forms[i].formIndex === parseInt(req.params.index)){
+            console.log(forms[i].items);
+            res.render("index", {title: forms[i].title, itemsList: forms[i].items})
+            break;
+        }
+    }
 });
 
 app.listen(3000, function(){
