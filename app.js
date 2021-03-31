@@ -111,7 +111,7 @@ app.route("/answer")
     today = day + "-" + month + "-" + year;
 
     newAnswer.date = today;
-    newAnswer.name = data.name;
+    newAnswer.userName = data.name;
     delete data['name'];
     newAnswer.answers = data;
 
