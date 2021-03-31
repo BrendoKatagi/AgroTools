@@ -44,22 +44,17 @@ app.route("/modal")
 
 .post(function(req, res){
 
-    let today = Date.now();
+    let today = require('./public/modules/dateTime');
+    todayDate = today();
+    console.log(todayDate);
 
-    let date = new Date(today);
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-
-    today = day + "-" + month + "-" + year;
-    
     newForm = {
         formIndex: qId + 1,
         creatorName: req.body.name,
         title: req.body.formTitle,
         country: req.body.country,
         city: req.body.city,
-        date: today
+        date: todayDate
     };
     JSON.stringify(newForm);
     res.redirect("/create");
@@ -101,16 +96,11 @@ app.route("/answer")
     ansID += 1;
     let data = req.body;
 
-    let today = Date.now();
+    let today = require('./public/modules/dateTime');
+    todayDate = today();
+    console.log(todayDate);
 
-    let date = new Date(today);
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-
-    today = day + "-" + month + "-" + year;
-    
-    newAnswer.date = today;
+    newAnswer.date = todayDate;
     newAnswer.latitude = data.lat;
     newAnswer.longitude = data.long;
     newAnswer.userName = data.name;
