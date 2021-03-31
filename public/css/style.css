@@ -65,6 +65,13 @@ nav ul li a{
 .add-btn:disabled{
   background-color: #cccccc;
 }
+
+.ans-input{
+  border: none;
+  background-color: #f4ecf9;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%)
+}
+
 .checkbtn{
   font-size: 30px;
   color: black;
@@ -117,7 +124,7 @@ nav ul li a{
   margin: 5%;
 }
 
-.quest-btn, .mod-btn{
+.quest-btn, .mod-btn, .backButton{
   background-color: #047499;
   border: none;
   color: white;
@@ -140,6 +147,7 @@ nav ul li a{
 .quest-form input{
   width: 100%;
   padding: inherit;
+  padding-left: 10px;
   height: 30px;
 }
 
