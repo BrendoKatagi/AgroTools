@@ -3,10 +3,14 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
 const app = express();
+
 let forms = [];
-let qId = 1;
+let qId = 0;
 let createItems = [];
 let newForm = {};
+let answeredForms  = [];
+let newAnswer = {};
+let ansID  = 0;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -68,13 +72,11 @@ app.route("/create")
 })
 
 .post(function(req, res){
-    console.log(req.body);
     let newValue = req.body.newItem;
     
     if(req.body.button === 'add'){
 
         createItems.push(newValue);
-        console.log(createItems);
         res.render("create", {questId: qId +1 , questions: createItems});
 
     }else if(req.body.button === 'save'){
@@ -84,7 +86,6 @@ app.route("/create")
         newForm.items = createItems;
 
         forms.push(newForm);
-        console.log(forms);
         createItems = [];
         newForm = {};
     }
@@ -97,6 +98,25 @@ app.route("/answer")
 })
 
 .post(function(req, res){
+    ansID += 1;
+    let data = req.body;
+
+    let today = Date.now();
+
+    let date = new Date(today);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    today = day + "-" + month + "-" + year;
+
+    newAnswer.date = today;
+    newAnswer.name = data.name;
+    delete data['name'];
+    newAnswer.answers = data;
+
+    answeredForms.push(newAnswer);
+    newAnswer = {};
 
 });
 
@@ -104,11 +124,11 @@ app.route("/answer/:index")
 
 .get(function(req, res){
     for (var i = 0; i < forms.length; i++){
-        console.log(forms[i].formIndex);
-        console.log(req.params.index);
 
         if(forms[i].formIndex === parseInt(req.params.index)){
-            console.log(forms[i].items);
+            newAnswer.answerIndex = ansID + 1;
+            newAnswer.formIndex = forms[i].formIndex;
+            newAnswer.formTitle =  forms[i].title;
             res.render("index", {title: forms[i].title, itemsList: forms[i].items})
             break;
         }
