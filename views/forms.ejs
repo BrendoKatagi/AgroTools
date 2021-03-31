@@ -11,7 +11,7 @@
                 </tr>
                 <% formData.forEach(function(form){ %>
                     <tr>
-                        <th><a href="/answer/<%= form.answerIndex %>"><%= form.formTitle %> </a></th>
+                        <th><a href="/forms/<%= form.answerIndex %>"><%= form.formTitle %> </a></th>
                         <th><%= form.userName %></th>
                         <th><%= form.date %></th>
                         <th><%= parseFloat(form.latitude).toFixed(4) %> / <%= parseFloat(form.longitude).toFixed(4) %></th>    
