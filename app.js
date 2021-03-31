@@ -153,7 +153,7 @@ app.route("/forms/:index")
 
         if(answeredForms[i].answerIndex === parseInt(req.params.index)){
             console.log(answeredForms[i]);
-            //res.render("checkform", {formData: answeredForms[i]});
+            res.render("checkform", {formData: answeredForms[i], formsQuest: forms[i].items});
             break;
         }
     }
