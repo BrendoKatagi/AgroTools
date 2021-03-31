@@ -40,12 +40,22 @@ app.route("/modal")
 
 .post(function(req, res){
 
+    let today = Date.now();
+
+    let date = new Date(today);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    today = day + "-" + month + "-" + year;
+    
     newForm = {
         formIndex: qId + 1,
         creatorName: req.body.name,
         title: req.body.formTitle,
         country: req.body.country,
-        city: req.body.city
+        city: req.body.city,
+        date: today
     };
     JSON.stringify(newForm);
     res.redirect("/create");
@@ -82,7 +92,13 @@ app.route("/create")
 });
 
 app.route("/answer")
+.get(function(req, res){
+    res.render("answer", {formData: forms});
+})
 
+.post(function(req, res){
+
+});
 
 app.listen(3000, function(){
     console.log("Server started on port 3000");
