@@ -33,8 +33,6 @@ app.route("/")
     
     JSON.stringify(newForm);
     forms.push(newForm);
-
-    console.log(forms);
 });
 
 app.route("/modal")
@@ -46,7 +44,6 @@ app.route("/modal")
 
     let today = require('./public/modules/dateTime');
     todayDate = today();
-    console.log(todayDate);
 
     newForm = {
         formIndex: qId + 1,
@@ -82,7 +79,7 @@ app.route("/create")
         createItems = [];
         newForm = {};
     }
-    //console.log(req.body);
+    res.redirect("answer");
 });
 
 app.route("/answer")
@@ -96,7 +93,6 @@ app.route("/answer")
 
     let today = require('./public/modules/dateTime');
     todayDate = today();
-    console.log(todayDate);
 
     newAnswer.date = todayDate;
     newAnswer.latitude = data.lat;
@@ -130,7 +126,6 @@ app.route("/answer/:index")
 
 app.route("/forms")
 .get(function(req, res){
-    console.log(answeredForms);
     res.render("forms", {formData: answeredForms});
 });
 
@@ -140,7 +135,6 @@ app.route("/forms/:index")
     for (var i = 0; i < answeredForms.length; i++){
 
         if(answeredForms[i].answerIndex === parseInt(req.params.index)){
-            console.log(answeredForms[i]);
             res.render("checkform", {formData: answeredForms[i], formsQuest: forms[i].items});
             break;
         }
