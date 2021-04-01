@@ -19,7 +19,7 @@ app.use(express.static("public"));
 app.route("/")
 
 .get(function(req, res){
-    res.redirect("/answer");
+    res.render("index");
 })
 
 .post(function(req, res){
@@ -118,7 +118,7 @@ app.route("/answer/:index")
             newAnswer.answerIndex = ansID + 1;
             newAnswer.formIndex = forms[i].formIndex;
             newAnswer.formTitle =  forms[i].title;
-            res.render("index", {title: forms[i].title, itemsList: forms[i].items});
+            res.render("results", {title: forms[i].title, itemsList: forms[i].items});
             break;
         }
     }
