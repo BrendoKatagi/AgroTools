@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const fs = require('fs');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 let forms = [];
 let qId = 0;
@@ -20,19 +22,6 @@ app.route("/")
 
 .get(function(req, res){
     res.render("index");
-})
-
-.post(function(req, res){
-
-    const newForm = {
-        name: req.body.name,
-        date: req.body.dateAns,
-        quest1: req.body.question1,
-        quest2: req.body.question2,
-    };
-    
-    JSON.stringify(newForm);
-    forms.push(newForm);
 });
 
 app.route("/modal")
@@ -42,7 +31,7 @@ app.route("/modal")
 
 .post(function(req, res){
 
-    let today = require('./public/modules/dateTime');
+    const today = require('./public/modules/dateTime');
     todayDate = today();
 
     newForm = {
@@ -91,16 +80,18 @@ app.route("/answer")
     ansID += 1;
     let data = req.body;
 
-    let today = require('./public/modules/dateTime');
+    const today = require('./public/modules/dateTime');
     todayDate = today();
 
     newAnswer.date = todayDate;
     newAnswer.latitude = data.lat;
     newAnswer.longitude = data.long;
     newAnswer.userName = data.name;
+
     delete data['name'];
     delete data['lat'];
     delete data['long'];
+
     newAnswer.answers = data;
 
     answeredForms.push(newAnswer);
@@ -140,6 +131,6 @@ app.route("/forms/:index")
         }
     }
 });
-app.listen(3000, function(){
-    console.log("Server started on port 3000");
+app.listen(port, function(){
+    console.log(`Server started on port ${port}`);
 });
