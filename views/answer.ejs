@@ -1,21 +1,28 @@
 <%- include('partials/header') %>
 
     <body>
+        <h2 class="page-title">Questionários criados:</h2>
+
         <div class="quest-container">
-            <table>
-                <tr>
-                    <th><h3>Título</h3></th>
-                    <th><h3>Nome criador</h3></th>
-                    <th><h3>Data de criação</h3></th>
-                </tr>
-                <% formData.forEach(function(form){ %>
+            <div style="overflow-x: auto;">
+                <table class="answer-table">
                     <tr>
-                        <th><a href="/answer/<%= form.formIndex %>"><%= form.title %> </a></th>
-                        <th><%= form.creatorName %></th>
-                        <th><%= form.date %></th>    
+                        <th><h3>Título</h3></th>
+                        <th><h3>Nome criador</h3></th>
+                        <th><h3>Data de criação</h3></th>
                     </tr>
-                <% }); %>
-            </table>
+                    <% formData.forEach(function(form){ %>
+                        <tr>
+                            <th><a href="/answer/<%= form.formIndex %>"><%= form.title %> </a></th>
+                            <th><%= form.creatorName %></th>
+                            <th><%= form.date %></th>    
+                        </tr>
+                    <% }); %>
+                </table>
+            </div>
         </div>
     </body>
+    <footer>
+        <hr>
+    </footer>
 </html>

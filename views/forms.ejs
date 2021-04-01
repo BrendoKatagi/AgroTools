@@ -1,23 +1,26 @@
 <%- include('partials/header') %>
 
     <body>
+        <h2 class="page-title">Questionários respondidos:</h2>
         <div class="quest-container">
-            <table>
-                <tr>
-                    <th><h3>Título:</h3></th>
-                    <th><h3>Respondido por:</h3></th>
-                    <th><h3>Data de cadastro:</h3></th>
-                    <th><h3>Latitude / Longitude:</h3></th>
-                </tr>
-                <% formData.forEach(function(form){ %>
+            <div style="overflow-x: auto;">
+                <table class="forms-table">
                     <tr>
-                        <th><a href="/forms/<%= form.answerIndex %>"><%= form.formTitle %> </a></th>
-                        <th><%= form.userName %></th>
-                        <th><%= form.date %></th>
-                        <th><%= parseFloat(form.latitude).toFixed(4) %> / <%= parseFloat(form.longitude).toFixed(4) %></th>    
+                        <th><h3>Título:</h3></th>
+                        <th><h3>Respondido por:</h3></th>
+                        <th><h3>Data de cadastro:</h3></th>
+                        <th><h3>Latitude / Longitude:</h3></th>
                     </tr>
-                <% }); %>
-            </table>
+                    <% formData.forEach(function(form){ %>
+                        <tr>
+                            <th><a href="/forms/<%= form.answerIndex %>"><%= form.formTitle %> </a></th>
+                            <th><%= form.userName %></th>
+                            <th><%= form.date %></th>
+                            <th><%= parseFloat(form.latitude).toFixed(4) %> / <%= parseFloat(form.longitude).toFixed(4) %></th>    
+                        </tr>
+                    <% }); %>
+                </table>
+            </div>  
         </div>
     </body>
 </html>

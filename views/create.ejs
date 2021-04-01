@@ -3,24 +3,26 @@
 
     <body>
 
+        <h2 class="page-title">Criar novo questionário:</h2>
+
         <div class="quest-container">
 
-            <h2>Questionário <%= questId %>  :</h2>
+            <h2 class="page-subtitle">Questionário <%= questId %>  :</h2>
             <form action="/create" method="POST" class="quest-form">
                 
                 <% if(questions.length){ %> 
                     <% questionId = 0; %> 
                     <% questions.forEach(function(item) { %>
                         <label for="<%= questionId %>"> <%= item %>  :</label><br>
-                        <input type="text" name="<%= questionId %>" ><br> 
+                        <input type="text" name="<%= questionId %>" placeholder="Resposta" readonly><br> 
                         <% questionId += 1 %> 
                     <% }) %>
                 <% } %>      
                 
-                <h2>Add new item:</h2>
+                <h2 class="add-item">Adicionar novo item:</h2>
 
                 <div class="add-form">
-                    <input type="text" name="newItem" placeholder="New question" autocomplete="off">
+                    <input type="text" name="newItem" placeholder="Insira a pergunta" autocomplete="off">
                     <button class="add-btn" type="submit" name="button" value="add" disabled>+</button>
                 </div>
 
